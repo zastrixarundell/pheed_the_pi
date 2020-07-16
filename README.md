@@ -1,22 +1,41 @@
 # PheedThePi
 A phoenix webserver for getting a livestream from a RaspberryPi camera module + controls of a servo. 
 
-![Catlixir image](https://raw.githubusercontent.com/zastrixarundell/pheed_the_pi/master/assets/static/images/banner.png "Pheed The Pi")
+![PTP image](https://raw.githubusercontent.com/zastrixarundell/pheed_the_pi/master/assets/static/images/banner.png "Pheed The Pi")
 
-To start your Phoenix server:
+## Basic server look:
+This is a WIP project and the currently look of it as of today (17.06.2020. DD/MM/YYYY) is minimalistic.
 
-  * Install dependencies with `mix deps.get`
-  * Install Node.js dependencies with `cd assets && npm install`
-  * Start Phoenix endpoint with `mix phx.server`
+Here is the look when the server is used in development:
 
-Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
+![PTP screenshot](https://raw.githubusercontent.com/zastrixarundell/pheed_the_pi/master/assets/static/images/screenshot.png "Pheed The Pi screenshot")
 
-Ready to run in production? Please [check our deployment guides](https://hexdocs.pm/phoenix/deployment.html).
+## Starting the server:
+### Development:
+To run the server in development on a normal computer you just need to do:
+* `mix phx.server`
 
-## Learn more
+Afterwards you will connect to the server on `localhost:4000`. And will be prompted to login. You will use the following default credentials if none custom are set:
 
-  * Official website: https://www.phoenixframework.org/
-  * Guides: https://hexdocs.pm/phoenix/overview.html
-  * Docs: https://hexdocs.pm/phoenix
-  * Forum: https://elixirforum.com/c/phoenix-forum
-  * Source: https://github.com/phoenixframework/phoenix
+* username: `username`
+* password: `passw0rd`
+
+Once you have logged in the camera will run in fake mode with a 720p stream. If you have the image that means that the stream is correctly working and it should work on a Raspberry Pi without any issues. 
+
+### Production:
+To run the server on a Raspberry Pi you'll have to do more stuff than on production:
+
+* `mix phx.gen.secret`
+* `export SECRET_KEY_BASE=(RESULT OF PREVIOUS COMMAND)`
+* `MIX_ENV=prod mix phx.server`
+
+You will use the following default credentials if none custom are set:
+
+* username: `username`
+* password: `passw0rd`
+
+## Configuring the server:
+The server itself isn't created to be too much highly configurable as on a real production-grade server as it is created in mind to be used locally, but you can have custom variables set:
+
+* `PHEED_THE_PI_USERNAME` - a variable for the username during login prompt.
+* `PHEED_THE_PI_PASSWORD` - a variable for the password during login prompot.
