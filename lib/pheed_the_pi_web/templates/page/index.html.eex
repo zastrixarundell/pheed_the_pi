@@ -1,6 +1,4 @@
+<img src="video.mjpg" />
 <section class="phx-hero">
-  <h1><%= gettext "Welcome to %{name}!", name: "Phoenix" %></h1>
-  <p>A productive web framework that<br/>does not compromise speed or maintainability.</p>
+  <h1><%= gettext "< controls should be added here >" %></h1>
 </section>
-
-  <img src="video.mjpg" />

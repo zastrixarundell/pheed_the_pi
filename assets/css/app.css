@@ -1,3 +1,11 @@
 /* This file is for your main application css. */
 
 @import "./phoenix.css";
+
+.footer-image {
+    position: absolute;
+    width: 15%;
+    height: auto;
+    left: 10px;
+    bottom: 10px;
+}

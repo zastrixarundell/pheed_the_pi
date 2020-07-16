@@ -4,6 +4,9 @@ defmodule PheedThePiWeb.CameraStreamer do
   Plug for streaming an image
   """
 
+  import Plug.BasicAuth
+  plug :basic_auth, Application.compile_env!(:pheed_the_pi, :basic_auth)
+
   @boundary "w58EW1cEpjzydSCq"
 
   def init(opts), do: opts
