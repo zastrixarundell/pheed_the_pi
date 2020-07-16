@@ -22,6 +22,8 @@ defmodule PheedThePi.Application do
     opts = [strategy: :one_for_one, name: PheedThePi.Supervisor]
     supervisor = Supervisor.start_link(children, opts)
 
+    set_picam_size!()
+
     supervisor
   end
 
@@ -31,4 +33,8 @@ defmodule PheedThePi.Application do
     PheedThePiWeb.Endpoint.config_change(changed, removed)
     :ok
   end
+
+  defp set_picam_size!(), do:
+    if Mix.env == :prod, do: Picam.set_size(1920, 0),
+      else: Picam.set_size(720, 0)
 end
