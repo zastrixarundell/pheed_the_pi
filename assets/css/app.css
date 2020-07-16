@@ -5,6 +5,7 @@
 .footer-image {
     position: absolute;
     width: 15%;
+    min-width: 200px;
     height: auto;
     left: 10px;
     bottom: 10px;
