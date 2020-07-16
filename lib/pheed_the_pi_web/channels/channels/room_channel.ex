@@ -6,12 +6,12 @@ defmodule PheedThePiWeb.RoomChannel do
   end
 
   def handle_in("button:press", %{"message" => button}, socket) do
-    IO.inspect "Pressed button #{button}", label: "socket-button-press"
+    IO.write "Pressed button #{button}"
     {:noreply, socket}
   end
 
   def handle_in("button:release", %{"message" => button}, socket) do
-    IO.inspect "Released button #{button}", label: "socket-button-release"
+    IO.write "Released button #{button}"
     {:noreply, socket}
   end
 end
