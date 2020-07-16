@@ -24,7 +24,8 @@ config :logger, :console,
 config :phoenix, :json_library, Jason
 
 # General configuration for PTP
-config :pheed_the_pi,
+config :pheed_the_pi, :basic_auth,
+  username: System.get_env("PHEED_THE_PI_USERNAME") || "username",
   password: System.get_env("PHEED_THE_PI_PASSWORD") || "passw0rd"
 
 # Import environment specific config. This must remain at the bottom
