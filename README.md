@@ -44,3 +44,6 @@ The server itself isn't created to be too much highly configurable as on a real 
 
 * `PHEED_THE_PI_USERNAME` - a variable for the username during login prompt.
 * `PHEED_THE_PI_PASSWORD` - a variable for the password during login prompot.
+
+## Just some fun:
+![Serb ball](https://raw.githubusercontent.com/zastrixarundell/pheed_the_pi/master/assets/static/images/image.png "Serb ball")
