@@ -11,6 +11,11 @@ Here is the look when the server is used in development:
 ![PTP screenshot](https://raw.githubusercontent.com/zastrixarundell/pheed_the_pi/master/assets/static/images/screenshot.png "Pheed The Pi screenshot")
 
 ## Starting the server:
+
+### Pre Requirements:
+Disregarding which environment you are running in, you have to do:
+* `cd assets && npm install`
+
 ### Development:
 To run the server in development on a normal computer you just need to do:
 * `mix phx.server`
