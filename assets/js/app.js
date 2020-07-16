@@ -15,3 +15,47 @@ import "phoenix_html"
 //
 // Local files can be imported directly using relative paths, for example:
 // import socket from "./socket"
+
+window.onload = function(){
+    let btnLeft = document.getElementById("btn-left");
+    let btnRight = document.getElementById("btn-right");
+
+    /*
+        let btnUp = document.getElementById("btn-up");
+        let btnDown = document.getElementById("btn-down");
+    */
+
+    btnLeft.addEventListener("mousedown", function(){
+        console.log("Button btn-left clicked");
+    })
+
+    btnLeft.addEventListener("mouseup", function(){
+        console.log("Button btn-left unclicked");
+    })
+
+    btnRight.addEventListener("mousedown", function(){
+        console.log("Button btn-right clicked");
+    })
+
+    btnRight.addEventListener("mouseup", function(){
+        console.log("Button btn-right unclicked");
+    })
+
+    /*
+        btnUp.addEventListener("mousedown", function(){
+            console.log("Button btn-up clicked");
+        })
+
+        btnUp.addEventListener("mouseup", function(){
+            console.log("Button btn-up unclicked");
+        })
+
+        btnDown.addEventListener("mousedown", function(){
+            console.log("Button btn-down clicked");
+        })
+
+        btnDown.addEventListener("mouseup", function(){
+            console.log("Button btn-down imclicked");
+        })
+    */
+}

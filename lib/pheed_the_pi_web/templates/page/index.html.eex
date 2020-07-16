@@ -1,4 +1,10 @@
 <img src="video.mjpg" />
 <section class="phx-hero">
-  <h1><%= gettext "< controls should be added here >" %></h1>
+  <h1><%= gettext "Control yer' bot" %></h1>
+  <button id="btn-left">Left</button>
+  <button id="btn-right">Right</button>
+  <!--
+    <button id="btn-up">Up</button>
+    <button id="btn-down">Down</button>
+  -->
 </section>
