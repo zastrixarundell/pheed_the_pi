@@ -1,4 +1,7 @@
 # PheedThePi
+A phoenix webserver for getting a livestream from a RaspberryPi camera module + controls of a servo. 
+
+![Catlixir image](https://raw.githubusercontent.com/zastrixarundell/pheed_the_pi/master/assets/static/images/banner.png "Pheed The Pi")
 
 To start your Phoenix server:
 
