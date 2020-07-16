@@ -14,7 +14,14 @@ import "phoenix_html"
 // Import local files
 //
 // Local files can be imported directly using relative paths, for example:
-// import socket from "./socket"
+import socket from "./socket"
+
+socket.connect();
+let channel = socket.channel("room:main", {});
+
+channel.join()
+  .receive("ok", resp => { console.log("Joined successfully", resp) })
+  .receive("error", resp => { console.log("Unable to join", resp) })
 
 window.onload = function(){
     let btnLeft = document.getElementById("btn-left");
@@ -26,19 +33,19 @@ window.onload = function(){
     */
 
     btnLeft.addEventListener("mousedown", function(){
-        console.log("Button btn-left clicked");
+        channel.push('button:press', {message: 'left'});
     })
 
     btnLeft.addEventListener("mouseup", function(){
-        console.log("Button btn-left unclicked");
+        channel.push('button:release', {message: 'left'});
     })
 
     btnRight.addEventListener("mousedown", function(){
-        console.log("Button btn-right clicked");
+        channel.push('button:press', {message: 'right'});
     })
 
     btnRight.addEventListener("mouseup", function(){
-        console.log("Button btn-right unclicked");
+        channel.push('button:release', {message: 'right'});
     })
 
     /*
