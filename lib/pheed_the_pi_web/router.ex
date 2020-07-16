@@ -19,6 +19,8 @@ defmodule PheedThePiWeb.Router do
     get "/", PageController, :index
   end
 
+  forward "/video.mjpg", PheedThePiWeb.CameraStreamer
+
   # Other scopes may use custom stacks.
   # scope "/api", PheedThePiWeb do
   #   pipe_through :api

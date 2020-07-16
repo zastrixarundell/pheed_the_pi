@@ -65,3 +65,7 @@ config :phoenix, :stacktrace_depth, 20
 
 # Initialize plugs at runtime for faster development compilation
 config :phoenix, :plug_init_mode, :runtime
+
+# Initialize a fake Pi camera
+config :picam,
+  camera: Picam.FakeCamera
