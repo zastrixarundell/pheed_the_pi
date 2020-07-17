@@ -35,3 +35,6 @@ npm-debug.log
 # we ignore priv/static. You may want to comment
 # this depending on your deployment strategy.
 /priv/static/
+
+# Cache directory with erlport Python
+/priv/python/__pycache__/
