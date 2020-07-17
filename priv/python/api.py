@@ -1,7 +1,7 @@
 from erlport.erlang import set_message_handler, cast
 from erlport.erlterms import Atom
-from servo.manager import Manager
-from servo.directions import Direction
+from manager import Manager
+from directions import Direction
 
 message_handler = None #reference to the elixir process to send result to
 manager = Manager()
