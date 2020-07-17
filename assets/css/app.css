@@ -29,7 +29,6 @@ body, html {
 
 
 #background {
-    background-image: url(/images/wallpaper.jpg);
     filter: blur(8px);
 
     /* Full height */
