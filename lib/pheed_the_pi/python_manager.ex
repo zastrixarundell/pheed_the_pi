@@ -13,4 +13,8 @@ defmodule PheedThePi.PythonManager do
     def send_python_message(message), do:
       Python.send_message(message)
 
+    @spec send_button_event(String.t(), boolean()) :: :ok
+    def send_button_event(button, pressed), do:
+      Python.cast_function(:set_direction, [button, pressed])
+
 end

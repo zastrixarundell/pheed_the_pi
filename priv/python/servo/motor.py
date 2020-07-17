@@ -29,6 +29,7 @@ class Servo:
             self.angle = -90
         elif self.angle > 90:
             self.angle = 90
+        pass
 
         # Generate the PWM
         duty = self.angle / 18 + 2

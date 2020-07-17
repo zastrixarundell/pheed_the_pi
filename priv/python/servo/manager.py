@@ -3,18 +3,23 @@ from directions import Direction
 from motor import Servo
 import RPi.GPIO as GPIO
 
-GPIO.setmode(GPIO.BOARD)
+class Manager:
 
-horizontal_direction = Direction.NONE
-vertical_drection = Direction.NONE
+    def __init__(self):        
+        GPIO.setmode(GPIO.BOARD)
+        self.horizontal_direction = Direction.NONE
+        self.vertical_drection = Direction.NONE
+        self.horizontal_servo = Servo(12)
+        self.vertical_servo = Servo(7)
 
-horizontal_servo = Servo(12)
-vertical_servo = Servo(7)
+    def calculate_directions(self):
+        self.vertical_servo.move(self.vertical_drection)
+        self.horizontal_servo.move(self.horizontal_direction)
+        # Repeat this method every 0.01 seconds but in a new thread
+        threading.Timer(0.01, self.calculate_directions).start()
 
-def calculate_directions():
-    vertical_servo.move(vertical_drection)
-    horizontal_servo.move(horizontal_direction)
-    threading.Timer(0.01, calculate_directions).start()
+    def set_horizontal(self, direction):
+        self.horizontal_direction = direction
 
-def start_manager():
-    calculate_directions()
+    def set_verical(self, direction):
+        self.vertical_drection = direction

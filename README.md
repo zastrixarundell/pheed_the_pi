@@ -3,18 +3,23 @@ An Elixir Phoenix webserver for getting a livestream from a RaspberryPi camera m
 
 ![PTP image](https://raw.githubusercontent.com/zastrixarundell/pheed_the_pi/master/assets/static/images/banner.png "Pheed The Pi")
 
-## Basic server look:
+## Note
+This has not yet been tested on a real pi since the Python code was added.
+
+## Basic server look
 Here is the look when the server is used in development:
 
 ![PTP screenshot](https://raw.githubusercontent.com/zastrixarundell/pheed_the_pi/master/assets/static/images/screenshot.png "Pheed The Pi screenshot")
 
-## Starting the server:
+## Starting the server
 
-### Pre Requirements:
+### Pre Requirements
 Disregarding which environment you are running in, you have to do:
 * `cd assets && npm install`
 
-### Development:
+### Development
+* Broken because the python code can't compile on a non-pi
+
 To run the server in development on a normal computer you just need to do:
 * `mix phx.server`
 
@@ -25,7 +30,7 @@ Afterwards you will connect to the server on `localhost:4000`. And will be promp
 
 Once you have logged in the camera will run in fake mode with a 720p stream. If you have the image that means that the stream is correctly working and it should work on a Raspberry Pi without any issues. 
 
-### Production:
+### Production
 To run the server on a Raspberry Pi you'll have to do more stuff than on production:
 
 * `mix phx.gen.secret`
@@ -37,11 +42,11 @@ You will use the following default credentials if none custom are set:
 * username: `username`
 * password: `passw0rd`
 
-## Configuring the server:
+## Configuring the server
 The server itself isn't created to be too much highly configurable as on a real production-grade server as it is created in mind to be used locally, but you can have custom variables set:
 
 * `PHEED_THE_PI_USERNAME` - a variable for the username during login prompt.
 * `PHEED_THE_PI_PASSWORD` - a variable for the password during login prompot.
 
-## Just some fun:
+## Just some fun
 ![Serb ball](https://raw.githubusercontent.com/zastrixarundell/pheed_the_pi/master/assets/static/images/image.png "Serb ball")
