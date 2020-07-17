@@ -39,7 +39,8 @@ defmodule PheedThePi.MixProject do
       {:gettext, "~> 0.11"},
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
-      {:picam, "~> 0.4.0"}
+      {:picam, "~> 0.4.0"},
+      {:erlport, "~> 0.10.1"}
     ]
   end
 end

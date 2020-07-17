@@ -14,7 +14,8 @@ defmodule PheedThePi.Application do
       PheedThePiWeb.Endpoint,
       # Starts a worker by calling: PheedThePi.Worker.start_link(arg)
       # {PheedThePi.Worker, arg},
-      camera
+      camera,
+      PheedThePi.PythonServer
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
