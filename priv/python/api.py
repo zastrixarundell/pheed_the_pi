@@ -1,5 +1,6 @@
 from erlport.erlang import set_message_handler, cast
 from erlport.erlterms import Atom
+from servo.manager import start_manager
 
 message_handler = None #reference to the elixir process to send result to
 
@@ -15,6 +16,8 @@ def register_handler(pid):
     #save message handler pid
     global message_handler
     message_handler = pid
+    start_manager()
+
 
 def handle_message(message):
     message = message.decode("utf-8")
