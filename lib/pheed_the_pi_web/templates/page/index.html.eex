@@ -1,5 +1,5 @@
-<img src="video.mjpg" />
-<section class="phx-hero">
+<img src="video.mjpg" class="video-feed" />
+<section class="command-container">
   <h1><%= gettext "Control yer' bot" %></h1>
   <div class="footer">
     <button id="btn-up">Up</button>
