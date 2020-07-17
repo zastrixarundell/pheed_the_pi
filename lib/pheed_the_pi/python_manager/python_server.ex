@@ -21,6 +21,15 @@ defmodule PheedThePi.PythonServer do
   def cast_function(function, arguments), do:
     GenServer.cast(__MODULE__, {function, arguments})
 
+  @spec send_message(any) :: :ok
+  def send_message(message), do:
+    GenServer.cast(__MODULE__, {:python_message, message})
+
+  def handle_cast({:python_message, message}, python_session) do
+    Python.cast(python_session, message)
+    {:noreply, python_session}
+  end
+
   def handle_cast({function, arguments}, python_session) do
     Python.call(python_session, :api, function, arguments)
     {:noreply, python_session}

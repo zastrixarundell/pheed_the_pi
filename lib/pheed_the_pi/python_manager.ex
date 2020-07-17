@@ -6,8 +6,11 @@ defmodule PheedThePi.PythonManager do
     alias PheedThePi.PythonServer, as: Python
 
     @spec message(String.t()) :: :ok
-    def message(message) do
+    def message(message), do:
       Python.cast_function(:message, [message])
-    end
+
+    @spec send_python_message(any) :: :ok
+    def send_python_message(message), do:
+      Python.send_message(message)
 
 end
