@@ -1,10 +1,12 @@
 <img src="video.mjpg" />
 <section class="phx-hero">
   <h1><%= gettext "Control yer' bot" %></h1>
-  <button id="btn-left">Left</button>
-  <button id="btn-right">Right</button>
-  <!--
+  <div class="footer">
     <button id="btn-up">Up</button>
+    <br/>
+    <button id="btn-left">Left</button>
+    <button id="btn-right">Right</button>
+    <br/>
     <button id="btn-down">Down</button>
-  -->
+  </div>
 </section>

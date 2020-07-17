@@ -26,11 +26,9 @@ channel.join()
 window.onload = function(){
     let btnLeft = document.getElementById("btn-left");
     let btnRight = document.getElementById("btn-right");
+    let btnUp = document.getElementById("btn-up");
+    let btnDown = document.getElementById("btn-down");
 
-    /*
-        let btnUp = document.getElementById("btn-up");
-        let btnDown = document.getElementById("btn-down");
-    */
 
     btnLeft.addEventListener("mousedown", function(){
         channel.push('button:press', {message: 'left'});
@@ -48,21 +46,19 @@ window.onload = function(){
         channel.push('button:release', {message: 'right'});
     })
 
-    /*
-        btnUp.addEventListener("mousedown", function(){
-            console.log("Button btn-up clicked");
-        })
+    btnUp.addEventListener("mousedown", function(){
+        channel.push('button:press', {message: 'up'});
+    })
 
-        btnUp.addEventListener("mouseup", function(){
-            console.log("Button btn-up unclicked");
-        })
+    btnUp.addEventListener("mouseup", function(){
+        channel.push('button:release', {message: 'up'});
+    })
 
-        btnDown.addEventListener("mousedown", function(){
-            console.log("Button btn-down clicked");
-        })
+    btnDown.addEventListener("mousedown", function(){
+        channel.push('button:press', {message: 'down'});
+    })
 
-        btnDown.addEventListener("mouseup", function(){
-            console.log("Button btn-down imclicked");
-        })
-    */
+    btnDown.addEventListener("mouseup", function(){
+        channel.push('button:release', {message: 'down'});
+    })
 }
