@@ -4,8 +4,6 @@ A phoenix webserver for getting a livestream from a RaspberryPi camera module + 
 ![PTP image](https://raw.githubusercontent.com/zastrixarundell/pheed_the_pi/master/assets/static/images/banner.png "Pheed The Pi")
 
 ## Basic server look:
-This is a WIP project and the currently look of it as of today (17.06.2020. DD/MM/YYYY) is minimalistic.
-
 Here is the look when the server is used in development:
 
 ![PTP screenshot](https://raw.githubusercontent.com/zastrixarundell/pheed_the_pi/master/assets/static/images/screenshot.png "Pheed The Pi screenshot")
