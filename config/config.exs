@@ -28,6 +28,21 @@ config :pheed_the_pi, :basic_auth,
   username: System.get_env("PHEED_THE_PI_USERNAME") || "username",
   password: System.get_env("PHEED_THE_PI_PASSWORD") || "passw0rd"
 
+  config :pheed_the_pi, PheedThePiWeb.Endpoint,
+  http: [port: 4000],
+  debug_errors: true,
+  code_reloader: true,
+  check_origin: false,
+  watchers: [
+    node: [
+      "node_modules/webpack/bin/webpack.js",
+      "--mode",
+      "development",
+      "--watch-stdin",
+      cd: Path.expand("../assets", __DIR__)
+    ]
+  ]
+
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env()}.exs"
