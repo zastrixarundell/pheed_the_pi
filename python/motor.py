@@ -18,15 +18,11 @@ class Servo:
 
     def move(self, direction):
         # Return if it should not be moving
-        print('Direction is: ' + str(direction))
         if direction == Direction.NONE:
-            print('Quitton motor')
             GPIO.output(self.pin, True)
             self.pwm.ChangeDutyCycle(0)
             GPIO.output(self.pin, False)
             return
-            
-        print('Had not quit motor')
 
         # Increment the angle by STEP or decrement by STEP depending on the Enum
         if direction.value > 0:
@@ -41,6 +37,7 @@ class Servo:
             self.angle = 90
         pass
 
+        print('Angle: ' + str(self.angle))
         # Generate the PWM
         duty = (self.angle + 90) / 18 + 2
         print('Duty cycle is: ' + str(duty))
