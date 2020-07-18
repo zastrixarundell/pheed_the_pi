@@ -25,10 +25,14 @@ class Servo:
             self.pwm.ChangeDutyCycle(0)
             GPIO.output(self.pin, False)
             return
+            
         print('Had not quit motor')
 
         # Increment the angle by STEP or decrement by STEP depending on the Enum
-        self.angle += STEP if direction.value > 0 else -STEP
+        if direction.value > 0:
+            self.angle += STEP
+        else:
+            self.angle -= STEP
 
         # Cap the values to +/- 90 degrees
         if self.angle < -90:
