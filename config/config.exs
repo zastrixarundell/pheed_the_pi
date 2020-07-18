@@ -28,7 +28,7 @@ config :pheed_the_pi, :basic_auth,
   username: System.get_env("PHEED_THE_PI_USERNAME") || "username",
   password: System.get_env("PHEED_THE_PI_PASSWORD") || "passw0rd"
 
-  config :pheed_the_pi, PheedThePiWeb.Endpoint,
+config :pheed_the_pi, PheedThePiWeb.Endpoint,
   http: [port: 4000],
   debug_errors: true,
   code_reloader: true,
