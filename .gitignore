@@ -38,3 +38,6 @@ npm-debug.log
 
 # Cache directory with erlport Python
 /priv/python/**/__pycache__/
+
+# RPi directory present only in development
+/priv/python/RPi

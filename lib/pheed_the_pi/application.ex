@@ -42,10 +42,18 @@ defmodule PheedThePi.Application do
       else: Picam.set_size(720, 0)
 
   defp delete_rpi() do
-    if Mix.env == :prod do
-      [:code.priv_dir(:pheed_the_pi), "python", "RPi"]
-      |> Path.join()
-      |> File.rm()
+    [:code.priv_dir(:pheed_the_pi), "python", "RPi"]
+    |> Path.join()
+    |> File.rm_rf()
+
+    if Mix.env != :prod do
+      destination =
+        [:code.priv_dir(:pheed_the_pi), "python", "RPi"]
+        |> Path.join()
+
+        [:code.priv_dir(:pheed_the_pi), "RPi"]
+        |> Path.join()
+        |> File.cp_r(destination)
     end
   end
 end
