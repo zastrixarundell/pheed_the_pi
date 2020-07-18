@@ -64,5 +64,5 @@ defmodule PheedThePi.Application do
   end
 
   defp set_framerate!(), do:
-    Picam.set_fps(if Mix.env == :prod, do: 60, else: 5)
+    Picam.set_fps(if Mix.env == :prod, do: 60, else: 10)
 end

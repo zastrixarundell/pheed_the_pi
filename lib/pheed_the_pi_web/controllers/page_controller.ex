@@ -18,6 +18,6 @@ defmodule PheedThePiWeb.PageController do
   ]
 
   def index(conn, _params) do
-    render(conn, "index.html", message: Enum.random(@sentences) |> IO.inspect(label: "Message"))
+    render(conn, "index.html", message: Enum.random(@sentences))
   end
 end

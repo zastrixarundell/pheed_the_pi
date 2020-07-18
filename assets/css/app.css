@@ -7,7 +7,7 @@
     width: 15%;
     min-width: 200px;
     height: auto;
-    right: 10px;
+    right: 1rem;
     bottom: 10px;
 }
 
@@ -26,14 +26,12 @@ body, html {
     overflow: hidden;
 }
 
-
-
 #background {
-    filter: blur(8px);
+    filter: blur(10px);
 
     /* Full height */
     width: 100%;
-    height: auto;
+    height: 100vh;
     transform: scale(1.1); 
 
     /* Center and scale the image nicely */
@@ -52,11 +50,8 @@ body, html {
 .video-feed {
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0, 0.7); /* Black w/opacity/see-through */
-    color: white;
-    font-weight: bold;
     border: 1px solid #f1f1f1;
-    padding: 5px;
-  }
+}
 
 .command-container {
     background-color: rgb(0,0,0); /* Fallback color */

@@ -20,7 +20,11 @@ socket.connect();
 let channel = socket.channel("room:main", {});
 
 channel.join()
-  .receive("ok", resp => { console.log("Joined successfully", resp) })
+  .receive("ok", resp => {
+      let h1 = document.getElementById("message")
+      h1.innerHTML = "Controls are active."
+      console.log("Joined successfully", resp)
+    })
   .receive("error", resp => { console.log("Unable to join", resp) })
 
 window.onload = function(){
