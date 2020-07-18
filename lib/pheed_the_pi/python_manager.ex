@@ -17,4 +17,8 @@ defmodule PheedThePi.PythonManager do
     def send_button_event(button, pressed), do:
       Python.cast_function(:set_direction, [button, pressed])
 
+    @spec compress_image(binary()) :: binary()
+    def compress_image(binary_image), do:
+      Python.call_function(:compress_img, [binary_image])
+
 end

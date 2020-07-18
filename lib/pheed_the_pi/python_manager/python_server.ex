@@ -17,10 +17,15 @@ defmodule PheedThePi.PythonServer do
     {:ok, python_session}
   end
 
-  # Call a specific function given an atom as the function name
+  # Cast a specific function given an atom as the function name
   @spec cast_function(atom(), list(any())) :: :ok
   def cast_function(function, arguments), do:
     GenServer.cast(__MODULE__, {function, arguments})
+
+  # Call a specific function given an atom as the function name
+  @spec call_function(atom(), list(any())) :: binary()
+  def call_function(function, arguments), do:
+    GenServer.call(__MODULE__, {function, arguments})
 
   # Send a general message to Python
   @spec send_message(any) :: :ok
@@ -40,6 +45,11 @@ defmodule PheedThePi.PythonServer do
   def handle_info({:python, message}, python_session) do
     IO.write "Got message from Python: #{message}\n"
     {:noreply, python_session}
+  end
+
+  def handle_call({:compress_img, image}, _caller, python_session) do
+    bytes = Python.call(python_session, :api, :compress_img, image)
+    {:reply, bytes, python_session}
   end
 
   def terminate(_reason, python_session) do

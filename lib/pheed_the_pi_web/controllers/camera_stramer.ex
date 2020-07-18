@@ -4,11 +4,11 @@ defmodule PheedThePiWeb.CameraStreamer do
   Plug for streaming an image
   """
 
-  import Plug.BasicAuth
+  #import Plug.BasicAuth
 
-  @username Application.get_env(:pheed_the_pi, :basic_auth)[:username]
-  @password Application.get_env(:pheed_the_pi, :basic_auth)[:password]
-  plug :basic_auth, username: @username, password: @password
+  #@username Application.get_env(:pheed_the_pi, :basic_auth)[:username]
+  #@password Application.get_env(:pheed_the_pi, :basic_auth)[:password]
+  #plug :basic_auth, username: @username, password: @password
 
   @boundary "w58EW1cEpjzydSCq"
 
@@ -30,7 +30,7 @@ defmodule PheedThePiWeb.CameraStreamer do
   end
 
   defp send_picture(conn) do
-    jpg = Picam.next_frame
+    jpg = Picam.next_frame |> PheedThePi.PythonManager.compress_image()
     size = byte_size(jpg)
     header = "------#{@boundary}\r\nContent-Type: image/jpeg\r\nContent-length: #{size}\r\n\r\n"
     footer = "\r\n"

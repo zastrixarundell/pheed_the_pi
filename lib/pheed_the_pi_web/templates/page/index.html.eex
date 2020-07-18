@@ -1,4 +1,4 @@
-
+<img src="video.mjpg" class="video-feed" />
 <section class="command-container">
   <h1 id="message"><%= @message %></h1>
   <div class="footer">

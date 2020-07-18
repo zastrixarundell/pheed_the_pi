@@ -27,6 +27,7 @@ defmodule PheedThePi.Application do
     supervisor = Supervisor.start_link(children, opts)
 
     set_picam_size!()
+    set_image!()
 
     supervisor
   end
@@ -41,6 +42,9 @@ defmodule PheedThePi.Application do
   defp set_picam_size!(), do:
     if Mix.env == :prod, do: Picam.set_size(1920, 0),
       else: Picam.set_size(720, 0)
+
+  defp set_image!(), do:
+      Picam.FakeCamera.set_image('assets/static/images/wallpaper.jpg' |> File.read!())
 
   defp delete_rpi() do
     [:code.priv_dir(:pheed_the_pi), "python", "RPi"]

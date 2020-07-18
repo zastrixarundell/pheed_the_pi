@@ -2,6 +2,7 @@ from erlport.erlang import set_message_handler, cast
 from erlport.erlterms import Atom
 from manager import Manager
 from directions import Direction
+from image import compress_image
 
 message_handler = None #reference to the elixir process to send result to
 manager = Manager()
@@ -22,6 +23,9 @@ def handle_message(message):
     cast_message(message_handler, 'Here you go: ' + message)
 
 set_message_handler(handle_message)
+
+def compress_img(image_bytes):
+    return compress_image(image_bytes)
 
 def message(message):
     message = message.decode("utf-8") 
