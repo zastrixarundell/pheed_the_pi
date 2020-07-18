@@ -13,9 +13,6 @@ defmodule PheedThePi.PythonServer do
     # Get the pid of the python session.
     python_session = Python.start()
 
-    # Link the python pid to the GenServer
-    Process.link(python_session)
-
     # Start the connection to the python session.
     Python.call(python_session, :api, :register_handler, [self()])
     {:ok, python_session}

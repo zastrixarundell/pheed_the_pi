@@ -5,10 +5,10 @@ defmodule PheedThePi.PythonConnection do
 
   def start() do
     path = [
-      :code.priv_dir(:pheed_the_pi), "python"
+      File.cwd!(), ".python"
     ] |> Path.join() |> IO.inspect(label: "Python priv path")
 
-    {:ok, pid} = :python.start([{:python_path, to_charlist(path)}])
+    {:ok, pid} = :python.start_link([{:python_path, to_charlist(path)}])
 
     pid
   end

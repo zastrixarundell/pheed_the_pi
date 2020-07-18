@@ -39,5 +39,5 @@ npm-debug.log
 # Cache directory of Python
 /priv/**/__pycache__/
 
-# RPi directory present only in development
-/priv/python/RPi
+# Directory where the ran Python code is
+/.python/

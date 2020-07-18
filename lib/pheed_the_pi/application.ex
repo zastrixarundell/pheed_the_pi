@@ -7,7 +7,7 @@ defmodule PheedThePi.Application do
 
   def start(_type, _args) do
     # Delete the RPi folder so the real Raspberry PI module can load
-    delete_rpi()
+    setup_python!()
 
     camera = Application.get_env(:picam, :camera, Picam.Camera)
 
@@ -47,19 +47,19 @@ defmodule PheedThePi.Application do
   defp set_image!(), do:
       Picam.FakeCamera.set_image('assets/static/images/wallpaper.jpg' |> File.read!())
 
-  defp delete_rpi() do
-    [:code.priv_dir(:pheed_the_pi), "python", "RPi"]
-    |> Path.join()
-    |> File.rm_rf()
+  defp setup_python!() do
+    destination =
+      [File.cwd!(), ".python"]
+      |> Path.join()
 
-    if Mix.env != :prod do
-      destination =
-        [:code.priv_dir(:pheed_the_pi), "python", "RPi"]
-        |> Path.join()
+    [:code.priv_dir(:pheed_the_pi), "python"]
+      |> Path.join()
+      |> File.cp_r(destination)
 
-        [:code.priv_dir(:pheed_the_pi), "RPi"]
+    if Mix.env == :prod do
+        [destination, "RPi"]
         |> Path.join()
-        |> File.cp_r(destination)
+        |> File.rm_rf()
     end
   end
 
