@@ -18,8 +18,6 @@ Disregarding which environment you are running in, you have to do:
 * `cd assets && npm install`
 
 ### Development
-* Broken because the python code can't compile on a non-pi
-
 To run the server in development on a normal computer you just need to do:
 * `mix phx.server`
 
@@ -29,6 +27,10 @@ Afterwards you will connect to the server on `localhost:4000`. And will be promp
 * password: `passw0rd`
 
 Once you have logged in the camera will run in fake mode with a 720p stream. If you have the image that means that the stream is correctly working and it should work on a Raspberry Pi without any issues. 
+
+#### Notes
+
+This won't use the real RPi because it can not be loaded on a non-ARM system. That's why there is a [mock RPi module](https://github.com/zastrixarundell/pheed_the_pi/tree/master/priv/python/RPi/) present and is deleted on the start of the application under production. This mock module will output data so you can guess what will happen at the real pin.
 
 ### Production
 To run the server on a Raspberry Pi you'll have to do more stuff than on production:

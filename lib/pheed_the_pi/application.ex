@@ -6,6 +6,7 @@ defmodule PheedThePi.Application do
   use Application
 
   def start(_type, _args) do
+    # Delete the RPi folder so the real Raspberry PI module can load
     delete_rpi()
 
     camera = Application.get_env(:picam, :camera, Picam.Camera)
