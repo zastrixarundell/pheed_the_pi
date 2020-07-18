@@ -32,7 +32,7 @@ class Servo:
         pass
 
         # Generate the PWM
-        duty = self.angle / 18 + 2
+        duty = (self.angle + 90) / 18 + 2
         # Set it give output
         GPIO.output(self.pin, True)
         self.pwm.ChangeDutyCycle(duty)
