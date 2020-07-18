@@ -3,7 +3,7 @@ from time import sleep
 import RPi.GPIO as GPIO
 
 # What is the angle step between each recursion
-STEP = 1
+STEP = 5
 
 class Servo: 
     def __init__(self, pin):
