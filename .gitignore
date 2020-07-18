@@ -36,8 +36,8 @@ npm-debug.log
 # this depending on your deployment strategy.
 /priv/static/
 
-# Cache directory with erlport Python
-/priv/python/**/__pycache__/
+# Cache directory of Python
+/priv/**/__pycache__/
 
 # RPi directory present only in development
 /priv/python/RPi
