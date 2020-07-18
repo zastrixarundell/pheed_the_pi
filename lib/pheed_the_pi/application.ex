@@ -28,6 +28,7 @@ defmodule PheedThePi.Application do
 
     set_picam_size!()
     set_image!()
+    set_framerate!()
 
     supervisor
   end
@@ -61,4 +62,7 @@ defmodule PheedThePi.Application do
         |> File.cp_r(destination)
     end
   end
+
+  defp set_framerate!(), do:
+    Picam.set_fps(if Mix.env == :prod, do: 60, else: 5)
 end
