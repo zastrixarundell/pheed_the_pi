@@ -52,7 +52,7 @@ defmodule PheedThePi.Application do
       [File.cwd!(), ".python"]
       |> Path.join()
 
-    [:code.priv_dir(:pheed_the_pi), "python"]
+      [File.cwd!(), "lib", "python"]
       |> Path.join()
       |> File.cp_r(destination)
 
