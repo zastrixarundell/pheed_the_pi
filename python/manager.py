@@ -16,7 +16,7 @@ class Manager:
         self.vertical_servo.move(self.vertical_drection)
         self.horizontal_servo.move(self.horizontal_direction)
         # Repeat this method every 0.01 seconds but in a new thread
-        threading.Timer(0.1, self.calculate_directions).start()
+        threading.Timer(1, self.calculate_directions).start()
 
     def set_horizontal(self, direction):
         print('Set horizontal to: ' + str(direction))
