@@ -52,7 +52,7 @@ defmodule PheedThePi.Application do
       [File.cwd!(), ".python"]
       |> Path.join()
 
-      [File.cwd!(), "lib", "python"]
+      [File.cwd!(), "python"]
       |> Path.join()
       |> File.cp_r(destination)
 
