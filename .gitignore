@@ -37,4 +37,4 @@ npm-debug.log
 /priv/static/
 
 # Cache directory with erlport Python
-/priv/python/__pycache__/
+/priv/python/**/__pycache__/

@@ -1,7 +1,7 @@
 from enum import Enum
 class Direction(Enum):
-    LEFT = True
-    RIGHT = False
-    UP = True
-    DOWN = False
+    LEFT = 1
+    RIGHT = -1
+    UP = 2
+    DOWN = -2
     NONE = None

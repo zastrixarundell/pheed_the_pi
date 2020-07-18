@@ -6,6 +6,8 @@ defmodule PheedThePi.Application do
   use Application
 
   def start(_type, _args) do
+    delete_rpi()
+
     camera = Application.get_env(:picam, :camera, Picam.Camera)
 
     # List all child processes to be supervised
@@ -38,4 +40,12 @@ defmodule PheedThePi.Application do
   defp set_picam_size!(), do:
     if Mix.env == :prod, do: Picam.set_size(1920, 0),
       else: Picam.set_size(720, 0)
+
+  defp delete_rpi() do
+    if Mix.env == :prod do
+      [:code.priv_dir(:pheed_the_pi), "python", "RPi"]
+      |> Path.join()
+      |> File.rm()
+    end
+  end
 end

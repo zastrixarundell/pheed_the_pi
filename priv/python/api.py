@@ -26,7 +26,6 @@ set_message_handler(handle_message)
 def message(message):
     message = message.decode("utf-8") 
     print('Hey, python has gotten the message: ' + message)
-    return 'test'
 
 def set_direction(button, pressed):
     button = button.decode("utf-8")
@@ -43,11 +42,11 @@ def set_direction(button, pressed):
             manager.set_horizontal(Direction.NONE)
     elif button == "up":
         if pressed:
-            manager.set_horizontal(Direction.UP)
+            manager.set_vertical(Direction.UP)
         else:
-            manager.set_horizontal(Direction.NONE)
+            manager.set_vertical(Direction.NONE)
     else:
         if pressed:
-            manager.set_horizontal(Direction.DOWN)
+            manager.set_vertical(Direction.DOWN)
         else:
-            manager.set_horizontal(Direction.NONE)
+            manager.set_vertical(Direction.NONE)
