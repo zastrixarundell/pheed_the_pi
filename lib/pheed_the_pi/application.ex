@@ -56,6 +56,10 @@ defmodule PheedThePi.Application do
       |> Path.join()
       |> File.cp_r(destination)
 
+    [destination, "erlport"]
+      |> Path.join()
+      |> File.rm_rf()
+
     if Mix.env == :prod do
         [destination, "RPi"]
         |> Path.join()
