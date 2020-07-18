@@ -33,6 +33,7 @@ class Servo:
 
         # Generate the PWM
         duty = (self.angle + 90) / 18 + 2
+        print('Duty cycle is: ' + str(duty))
         # Set it give output
         GPIO.output(self.pin, True)
         self.pwm.ChangeDutyCycle(duty)
