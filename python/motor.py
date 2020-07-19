@@ -39,7 +39,7 @@ class Servo:
 
         print('Angle: ' + str(self.angle))
         # Generate the PWM
-        duty = (self.angle + 90) / 18 + 2
+        duty = (float(self.angle) + 90.0) / 18.0 + 2.0
         print('Duty cycle is: ' + str(duty))
         # Set it give output
         GPIO.output(self.pin, True)
