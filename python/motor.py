@@ -15,13 +15,15 @@ class Servo:
         self.pwm = GPIO.PWM(pin, 50)
         # Set the duty cycle to 0
         self.pwm.start(0)
+        self.duty = 0
 
     def move(self, direction):
         # Return if it should not be moving
         if direction == Direction.NONE:
-            GPIO.output(self.pin, True)
-            self.pwm.ChangeDutyCycle(0)
-            GPIO.output(self.pin, False)
+            if self.duty != 0:
+                GPIO.output(self.pin, True)
+                self.pwm.ChangeDutyCycle(0)
+                GPIO.output(self.pin, False)
             return
 
         # Increment the angle by STEP or decrement by STEP depending on the Enum
@@ -39,12 +41,13 @@ class Servo:
 
         print('Angle: ' + str(self.angle))
         # Generate the PWM
-        duty = (float(self.angle) + 90.0) / 18.0 + 2.0
-        print('Duty cycle is: ' + str(duty))
+        self.duty = (float(self.angle) + 90.0) / 18.0 + 2.0
+        print('Duty cycle is: ' + str(self.duty))
         # Set it give output
         GPIO.output(self.pin, True)
-        self.pwm.ChangeDutyCycle(duty)
+        self.pwm.ChangeDutyCycle(self.duty)
         GPIO.output(self.pin, False)    
         sleep(0.5)    
         self.pwm.ChangeDutyCycle(0)
+        self.duty = 0
 
