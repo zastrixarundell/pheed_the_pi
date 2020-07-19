@@ -43,16 +43,15 @@ defmodule PheedThePi.Application do
   require Logger
 
   defp set_picam_size!() do
-    resolution =
-      if Mix.env == :prod, do: 1920, else: 720
-
+    resolution = 720
     Logger.log(:info, "Setting Picam to work with #{resolution}p.")
-
     Picam.set_size(resolution, 0)
   end
 
-  defp set_image!(), do:
+  defp set_image!() do
+    if Mix.env() != :prod, do:
       Picam.FakeCamera.set_image('assets/static/images/game.jpg' |> File.read!())
+  end
 
   defp setup_python!() do
     destination =
@@ -80,5 +79,5 @@ defmodule PheedThePi.Application do
   end
 
   defp set_framerate!(), do:
-    Picam.set_fps(if Mix.env == :prod, do: 60, else: 1)
+    Picam.set_fps(if Mix.env() == :prod, do: 30, else: 1)
 end
