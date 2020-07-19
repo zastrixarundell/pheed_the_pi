@@ -45,7 +45,7 @@ defmodule PheedThePi.Application do
       else: Picam.set_size(720, 0)
 
   defp set_image!(), do:
-      Picam.FakeCamera.set_image('assets/static/images/wallpaper.jpg' |> File.read!())
+      Picam.FakeCamera.set_image('assets/static/images/game.jpg' |> File.read!())
 
   defp setup_python!() do
     destination =
@@ -68,5 +68,5 @@ defmodule PheedThePi.Application do
   end
 
   defp set_framerate!(), do:
-    Picam.set_fps(if Mix.env == :prod, do: 60, else: 10)
+    Picam.set_fps(if Mix.env == :prod, do: 60, else: 1)
 end
