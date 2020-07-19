@@ -53,8 +53,4 @@ defmodule PheedThePi.PythonServer do
     {:reply, bytes, python_session}
   end
 
-  def terminate(_reason, python_session) do
-    Python.stop(python_session)
-  end
-
 end

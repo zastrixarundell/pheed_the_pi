@@ -7,7 +7,7 @@ defmodule PheedThePi.PythonManager do
 
     @spec message(String.t()) :: :ok
     def message(message), do:
-      Python.cast_function(:message, [message])
+      Python.cast_function(:handle_message, [message])
 
     @spec send_python_message(any) :: :ok
     def send_python_message(message), do:

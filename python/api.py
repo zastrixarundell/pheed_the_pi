@@ -4,8 +4,12 @@ from manager import Manager
 from directions import Direction
 from image import compress_image
 
-message_handler = None #reference to the elixir process to send result to
+# Python API module which doess control over the rest of the Python code.
+
+message_handler = None #reference to the Elixir process to send result to
 manager = Manager()
+
+# General code which is for connecting the Erlport process
 
 def cast_message(pid, message):
     cast(pid, (Atom(b'python'), message))
@@ -24,12 +28,11 @@ def handle_message(message):
 
 set_message_handler(handle_message)
 
+
+# Code which is realy used by the Elixir server.
+
 def compress_img(image_bytes):
     return compress_image(image_bytes)
-
-def message(message):
-    message = message.decode("utf-8") 
-    print('Hey, python has gotten the message: ' + message)
 
 def set_direction(button, pressed):
     button = button.decode("utf-8")
