@@ -44,4 +44,7 @@ class Servo:
         # Set it give output
         GPIO.output(self.pin, True)
         self.pwm.ChangeDutyCycle(duty)
-        GPIO.output(self.pin, False)        
+        GPIO.output(self.pin, False)    
+        sleep(0.5)    
+        self.pwm.ChangeDutyCycle(0)
+
