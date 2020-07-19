@@ -8,12 +8,12 @@ defmodule PheedThePiWeb.RoomChannel do
   end
 
   def handle_in("button:press", %{"message" => button}, socket) do
-    Python.send_button_event(button, true)
+    Python.send_button_event(button |> String.to_atom(), true)
     {:noreply, socket}
   end
 
   def handle_in("button:release", %{"message" => button}, socket) do
-    Python.send_button_event(button, false)
+    Python.send_button_event(button |> String.to_atom(), false)
     {:noreply, socket}
   end
 end
