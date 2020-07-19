@@ -1,4 +1,6 @@
-<img src="video.mjpg" class="video-feed" />
+<canvas id="player" class="video-feed">
+  Well shit.
+</canvas>
 <section class="command-container">
   <h1 id="message"><%= @message %></h1>
   <div class="footer">
@@ -10,3 +12,8 @@
     <button id="btn-down">Down</button>
   </div>
 </section>
+<script src="<%= Routes.static_path(@conn, "/js/mjpeg.js") %>"></script>
+<script>
+  var player = new MJPEG.Player("player", "/video.mjpg");
+  player.start();
+</script>
