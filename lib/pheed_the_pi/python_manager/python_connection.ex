@@ -3,6 +3,8 @@ defmodule PheedThePi.PythonConnection do
   Module responsible for the Python connection and IO.
   """
 
+  require Logger
+
   @doc """
   Start the Python Erlport connected to the calling process.
   """
@@ -10,9 +12,11 @@ defmodule PheedThePi.PythonConnection do
   def start_link() do
     path = [
       File.cwd!(), ".python"
-    ] |> Path.join() |> IO.inspect(label: "Python priv path")
+    ] |> Path.join()
 
     {:ok, pid} = :python.start_link([{:python_path, to_charlist(path)}])
+
+    Logger.info("Connected to erlport at #{path}")
 
     pid
   end

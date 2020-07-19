@@ -40,9 +40,16 @@ defmodule PheedThePi.Application do
     :ok
   end
 
-  defp set_picam_size!(), do:
-    if Mix.env == :prod, do: Picam.set_size(1920, 0),
-      else: Picam.set_size(720, 0)
+  require Logger
+
+  defp set_picam_size!() do
+    resolution =
+      if Mix.env == :prod, do: 1920, else: 720
+
+    Logger.log(:info, "Setting Picam to work with #{resolution}p.")
+
+    Picam.set_size(resolution, 0)
+  end
 
   defp set_image!(), do:
       Picam.FakeCamera.set_image('assets/static/images/game.jpg' |> File.read!())
@@ -56,14 +63,19 @@ defmodule PheedThePi.Application do
       |> Path.join()
       |> File.cp_r(destination)
 
+      Logger.info("Copied python modules to #{destination}")
+
     [destination, "erlport"]
       |> Path.join()
       |> File.rm_rf()
+
+    Logger.info("Deleted #{[destination, "erlport"] |> Path.join()}")
 
     if Mix.env == :prod do
         [destination, "RPi"]
         |> Path.join()
         |> File.rm_rf()
+        Logger.info("Deleted #{[destination, "RPi"] |> Path.join()}")
     end
   end
 
