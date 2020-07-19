@@ -30,7 +30,7 @@ defmodule PheedThePiWeb.CameraStreamer do
   end
 
   defp send_picture(conn) do
-    jpg = Picam.next_frame() |> PheedThePi.PythonManager.compress_image()
+    jpg = Picam.next_frame() #|> PheedThePi.PythonManager.compress_image()
     size = byte_size(jpg)
     header = "------#{@boundary}\r\nContent-Type: image/jpeg\r\nContent-length: #{size}\r\n\r\n"
     footer = "\r\n"
